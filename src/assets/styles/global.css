@@ -63,7 +63,7 @@ html {
    font-weight: 800;
    font-size: 1.7rem;
    margin-bottom: 1rem;
-   color: var(--dark-color);
+   color: var(--gray-color-75);
 }
 .container {
    position: relative;

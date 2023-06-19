@@ -1,6 +1,11 @@
 import '../assets/styles/header.css';
 
-import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import {
+   MdCatchingPokemon,
+   MdDarkMode,
+   MdLightMode,
+   MdLocationSearching,
+} from 'react-icons/md';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -38,12 +43,19 @@ function Header() {
             </Link>
             <div className="right">
                <ul className="list">
-                  <li className="listItems">
-                     <Link to="/pokelist">PokeList</Link>
-                  </li>
-                  <li className="listItems">
-                     <Link to="/search">Search</Link>
-                  </li>
+                  <Link to="/pokelist">
+                     <li className="listItems">
+                        <MdCatchingPokemon className="menuItemIcon" />
+                        PokeList
+                     </li>
+                  </Link>
+
+                  <Link to="/search">
+                     <li className="listItems">
+                        <MdLocationSearching className="menuItemIcon" />
+                        Search
+                     </li>
+                  </Link>
                </ul>
                <span
                   onClick={handleToggle}
