@@ -1,46 +1,46 @@
 .header {
-   top: 1rem;
-   margin-left: auto;
-   margin-right: auto;
-   left: 0;
-   right: 0;
-   border-radius: 2rem;
+   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+   align-items: center;
    position: fixed;
    z-index: 9;
-   align-items: center;
-   background-color: var(--light-bg);
+   top: 1rem;
+   left: 0;
+   right: 0;
    height: calc(var(--header-height) - 0.75rem);
+   margin-right: auto;
+   margin-left: auto;
    padding: 0.25rem 0;
-   border-bottom: 1rem solid var(--light-bg);
+   background-color: var(--light-bg);
    border-top: 1rem solid var(--light-bg);
-   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+   border-bottom: 1rem solid var(--light-bg);
+   border-radius: 2rem;
 }
 
 .header-container {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   gap: 0.5rem;
    position: relative;
    height: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   gap: 0.5rem;
-   flex-direction: row;
 }
 
 .logo {
    display: flex;
-   align-items: center;
    justify-content: center;
+   align-items: center;
    gap: 0.5rem;
 }
 
 .logo img {
-   width: 42px;
    object-fit: cover;
+   width: 42px;
 }
 
 .logo span {
-   font-weight: 500;
    font-size: 1.5rem;
+   font-weight: 500;
    color: var(--first-color);
 }
 .logo span:hover {
@@ -54,31 +54,31 @@
 }
 
 .listItems {
-   margin-left: 0.25rem;
-   margin-right: 0.25rem;
-   padding: 0.5rem 0.7rem;
-   font-weight: 500;
-   border: 1px solid var(--first-color);
-   border-radius: 5rem;
    display: flex;
    justify-content: center;
    align-items: center;
+   margin-right: 0.25rem;
+   margin-left: 0.25rem;
+   padding: 0.5rem 0.7rem;
+   border: 1px solid var(--first-color);
+   border-radius: 5rem;
+   font-weight: 500;
 }
 
 .listItems:hover {
-   color: var(--second-color);
    border: 1px solid var(--second-color);
+   color: var(--second-color);
 }
 
 .themeSwitcher {
-   position: relative;
-   display: grid;
    place-items: center;
+   display: grid;
+   position: relative;
    width: 38px;
    height: 38px;
    background-color: var(--opacity-bg);
-   border-radius: 50%;
    cursor: pointer;
+   border-radius: 50%;
 }
 
 .themeSwitcher .icon {
@@ -87,12 +87,12 @@
 
 .right {
    display: flex;
-   align-items: center;
    justify-content: center;
+   align-items: center;
 }
 
 .menuItemIcon {
-   margin-right: 0.25rem;
-   height: 22px;
    width: 22px;
+   height: 22px;
+   margin-right: 0.25rem;
 }

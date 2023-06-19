@@ -1,26 +1,26 @@
 .category-boxes {
-   position: relative;
-   padding: 0.5rem 0 1rem 0;
-   width: 100%;
    display: flex;
    flex-direction: row;
    align-items: center;
    gap: 1rem;
+   position: relative;
    overflow-x: auto;
+   width: 100%;
+   padding: 0.5rem 0 1rem 0;
 }
 
 .category-box {
    min-width: max-content;
    padding: 0.5rem 1rem;
+   transition: all 0.25s;
    background-color: var(--light-bg);
-   color: var(--gray-color-200);
    border-radius: 0.5rem;
    font-size: 0.9rem;
-   transition: all 0.25s;
+   color: var(--gray-color-200);
 }
 .category-box:hover,
 .category-box.active {
    background: var(--second-color);
-   color: #fff;
    cursor: pointer;
+   color: #fff;
 }

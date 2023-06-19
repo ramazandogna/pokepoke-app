@@ -1,28 +1,28 @@
 .pokemon-boxes {
-   width: 100%;
    display: flex;
-   justify-content: space-between;
-   flex-wrap: wrap;
    flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
    gap: 1rem;
+   width: 100%;
    margin: 1rem 0;
 }
 
 .poke-card {
-   position: relative;
+   box-shadow: 5px 8px 20px 4px #7b808a16;
    display: flex;
    flex-direction: column;
-   background: var(--main-bg);
+   position: relative;
    width: calc(23% - 0.75rem);
    height: 40vh;
    margin: 0.25rem;
    padding: 1rem;
+   transition: all 0.35s;
+   background: var(--main-bg);
+   background-color: #f5f5f5;
    border: 1px solid #ccc;
    border-radius: 1rem;
-   background-color: #f5f5f5;
-   box-shadow: 5px 8px 20px 4px #7b808a16;
    text-align: center;
-   transition: all 0.35s;
 }
 
 .poke-card:hover {
@@ -32,39 +32,38 @@
 
 .pokemon-image {
    display: flex;
-   position: relative;
-   margin-top: 1rem;
-   margin-bottom: 1rem;
-   margin-left: auto;
-   margin-right: auto;
-   background-color: var(--second-color);
    justify-content: center;
    align-items: center;
-   height: 150px;
+   position: relative;
    width: 150px;
+   height: 150px;
+   margin-top: 1rem;
+   margin-right: auto;
+   margin-bottom: 1rem;
+   margin-left: auto;
+   background-color: var(--second-color);
 }
 
 .favorite-icon {
    display: flex;
-   position: absolute;
-   font-size: 2rem;
-   right: 10px;
-   top: 10px;
-   display: inline-block;
    justify-content: flex-end;
+   position: absolute;
+   top: 10px;
+   right: 10px;
    margin-bottom: 1rem;
+   font-size: 2rem;
 }
 
 .pokemon-name {
+   margin-bottom: 0.5rem;
    font-size: 1.25rem;
    font-weight: bold;
-   margin-bottom: 0.5rem;
 }
 
 .pokemon-types {
-   color: #777;
    margin-bottom: 0.5rem;
    font-size: 0.6rem;
+   color: #777;
 }
 
 .pokemon-description {
