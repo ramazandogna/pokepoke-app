@@ -30,7 +30,7 @@ function Pokemondetail() {
 
    return (
       <div className="section">
-         <h2 className="section-title">{pokemon.name} 🔥 </h2>
+         <h2 className="section-title">{pokemon.name} 👀</h2>
          <div></div>
       </div>
    );
