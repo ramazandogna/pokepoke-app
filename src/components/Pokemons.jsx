@@ -9,9 +9,7 @@ function Pokemons() {
       <div className="section">
          <h2 className="section-title">Types 🔥 </h2>
          <Categories />
-         <div className="pokemon-boxes">
-            <PokeCard />
-         </div>
+         <PokeCard />
       </div>
    );
 }

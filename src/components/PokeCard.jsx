@@ -3,6 +3,7 @@ import '../assets/styles/pokemons.css'; // PokeCard bileşeninin stillerini içe
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 import React, { useEffect, useState } from 'react';
 
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function PokeCard() {
@@ -31,6 +32,17 @@ function PokeCard() {
                );
                const pokemonData = response.data;
                pokemonData.id = id; // ID değerini Pokémon verisine ekliyoruz
+
+               const speciesResponse = await axios.get(
+                  `https://pokeapi.co/api/v2/pokemon-species/${id}/`
+               );
+               const flavorTextEntries =
+                  speciesResponse.data.flavor_text_entries;
+               const englishEntry = flavorTextEntries.find(
+                  (entry) => entry.language.name === 'en'
+               );
+               pokemonData.flavor_text = englishEntry.flavor_text;
+
                return pokemonData;
             });
 
@@ -48,13 +60,11 @@ function PokeCard() {
       setFavorite(!favorite);
    };
 
-   console.log(favorite);
-
    return (
-      <>
+      <div className="poke-container">
          {pokeData.map((pokemon) => (
             <div
-               id={pokemon.id}
+               key={pokemon.id}
                className="poke-card"
             >
                <div
@@ -75,17 +85,23 @@ function PokeCard() {
                   {pokemon.types.map((type) => (
                      <div
                         className="pokemon-type"
-                        key={type.type.id}
+                        key={type.type.url}
                      >
                         {type.type.name}
                      </div>
                   ))}
                </div>
 
-               <div className="pokemon-description">{pokemon.description}</div>
+               <div className="pokemon-description">{pokemon.flavor_text}</div>
+               <Link
+                  to={`/pokemon/${pokemon.id}`}
+                  className="pokemon-link"
+               >
+                  Detayları görüntüle
+               </Link>
             </div>
          ))}
-      </>
+      </div>
    );
 }
 

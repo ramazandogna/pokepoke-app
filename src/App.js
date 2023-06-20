@@ -2,9 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 
 import Banner from './components/Banner';
 import Header from './components/Header';
-import HomePage from './pages/HomePage';
 import PokeMarket from './pages/PokeMarket';
 import Pokelist from './pages/Pokelist';
+import Pokemondetail from './pages/PokemonDetail';
+import Pokemons from './components/Pokemons';
 import Search from './pages/Search';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
                <Routes>
                   <Route
                      path="/"
-                     element={<HomePage />}
+                     element={<Pokemons />}
                   />
                   <Route
                      path="/pokelist"
@@ -30,6 +31,11 @@ function App() {
                   <Route
                      path="/market"
                      element={<PokeMarket />}
+                  />
+                  <Route
+                     exact
+                     path="/pokemon/:id"
+                     element={<Pokemondetail />}
                   />
                </Routes>
             </div>
