@@ -17,10 +17,14 @@
    border-radius: 0.5rem;
    font-size: 0.9rem;
    color: var(--gray-color-200);
+   transition: all 0.35;
+   border: 1px solid rgb(255, 255, 255, 0);
 }
 .category-box:hover,
 .category-box.active {
    background: var(--second-color);
    cursor: pointer;
    color: #fff;
+   border-radius: 0;
+   border: 1px var(--light-bg) solid;
 }

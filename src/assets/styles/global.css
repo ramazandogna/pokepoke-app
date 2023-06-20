@@ -53,20 +53,23 @@ html {
    padding: 2.5rem 0;
 }
 .section-title {
+   display: inline-block;
    margin-bottom: 1rem;
+   padding: 0.5rem 2rem 0.5rem 0.5rem;
+   transition: all 0.35s;
+   background-color: var(--light-bg);
+   border-radius: 0.5rem;
    font-size: 1.7rem;
    font-weight: 800;
    color: var(--dark-color);
-   background-color: var(--light-bg);
-   display: inline-block;
-   padding: 1rem 4rem 1rem 1rem;
-   border-radius: 2rem;
-   transition: all 0.35s;
+   border: 1px solid rgb(255, 255, 255, 0);
 }
 
 .section-title:hover {
    background-color: var(--second-color);
+   border-radius: 0;
    color: var(--light-bg);
+   border: 1px solid var(--light-bg);
 }
 
 .container {
