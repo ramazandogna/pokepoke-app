@@ -36,12 +36,18 @@
 .logo img {
    object-fit: cover;
    width: 42px;
+   transition: all 0.35s;
+}
+
+.logo img:hover {
+   transform: scale(1.15);
 }
 
 .logo span {
    font-size: 1.5rem;
    font-weight: 500;
    color: var(--first-color);
+   transition: all 0.35s;
 }
 .logo span:hover {
    color: var(--second-color);
@@ -63,6 +69,7 @@
    border: 1px solid var(--first-color);
    border-radius: 5rem;
    font-weight: 500;
+   transition: all 0.35s;
 }
 
 .listItems:hover {
@@ -79,6 +86,11 @@
    background-color: var(--opacity-bg);
    cursor: pointer;
    border-radius: 50%;
+   transition: all 0.35s;
+}
+
+.themeSwitcher:hover {
+   transform: scale(1.15);
 }
 
 .themeSwitcher .icon {

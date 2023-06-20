@@ -5,6 +5,7 @@ import {
    MdDarkMode,
    MdLightMode,
    MdLocationSearching,
+   MdShoppingCart,
 } from 'react-icons/md';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -49,7 +50,12 @@ function Header() {
                         PokeList
                      </li>
                   </Link>
-
+                  <Link to="/pokelist">
+                     <li className="listItems">
+                        <MdShoppingCart className="menuItemIcon" />
+                        PokeMarket
+                     </li>
+                  </Link>
                   <Link to="/search">
                      <li className="listItems">
                         <MdLocationSearching className="menuItemIcon" />

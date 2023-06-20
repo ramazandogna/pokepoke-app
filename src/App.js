@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Banner from './components/Banner';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
+import PokeMarket from './pages/PokeMarket';
 import Pokelist from './pages/Pokelist';
 import Search from './pages/Search';
 
@@ -25,6 +26,10 @@ function App() {
                   <Route
                      path="/search"
                      element={<Search />}
+                  />
+                  <Route
+                     path="/market"
+                     element={<PokeMarket />}
                   />
                </Routes>
             </div>

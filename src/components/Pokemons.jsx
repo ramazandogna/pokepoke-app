@@ -11,13 +11,6 @@ function Pokemons() {
          <Categories />
          <div className="pokemon-boxes">
             <PokeCard />
-            <PokeCard />
-            <PokeCard />
-            <PokeCard />
-            <PokeCard />
-            <PokeCard />
-            <PokeCard />
-            <PokeCard />
          </div>
       </div>
    );
