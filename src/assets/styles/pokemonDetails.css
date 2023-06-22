@@ -1,0 +1,130 @@
+.pokemon-detail-container {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   width: 100%;
+   margin: 4rem 0;
+   padding: 5rem 0;
+   background-color: var(--light-bg);
+   border-radius: 1rem;
+   position: relative;
+   max-height: 800px;
+}
+
+.pokemon-detail-image-container {
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.1);
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   flex-basis: 50%;
+   grid-column: 1;
+   position: relative;
+   max-height: 600px;
+   transition: all 0.35s;
+   border-radius: 1rem;
+}
+
+.pokemon-detail-image {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+   padding: 2rem;
+}
+
+.pokemon-details-container {
+   flex-basis: 50%;
+   padding: 0 2rem;
+   position: relative;
+   max-height: 600px;
+}
+
+.pokemon-detail-name {
+   margin-bottom: 1.5rem;
+   transition: all 0.35s;
+   font-size: 4.25rem;
+   font-weight: bold;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+}
+
+.pokemon-detail-type-container {
+   justify-content: center;
+   margin-bottom: 1.5rem;
+}
+
+.pokemon-detail-type-container ul {
+   list-style: circle;
+   text-transform: uppercase;
+}
+
+.pokemon-detail-type {
+   background-color: var(--dark-color);
+   display: inline-block;
+   padding: 0.25rem 1.25rem;
+   color: var(--light-bg);
+   margin: 0 0.25rem 1.5rem 0;
+}
+
+.pokemon-detail-weight {
+   margin-bottom: 2rem;
+}
+.pokemon-detail-height {
+   margin-bottom: 2rem;
+}
+
+.pokemon-detail-weight,
+.pokemon-detail-height {
+   display: flex;
+   align-items: center;
+   margin-bottom: 2rem;
+   font-size: 1.5rem;
+}
+
+.pokemon-detail-flavor-text {
+   font-size: 1.2rem;
+   display: flex;
+   align-items: center;
+   margin-bottom: 2rem;
+   position: inherit;
+}
+
+.pokemon-detail-icons {
+   font-size: 1.5rem;
+   margin-right: 0.25rem;
+}
+
+.pokemon-detail-fav-container {
+   position: absolute;
+   background-color: var(--dark-color);
+   border-radius: 1rem;
+   justify-content: center;
+   align-items: center;
+   padding: 0.75rem 1.5rem;
+   border: 0.2rem solid black;
+   display: inline-block;
+   transition: all 0.35s;
+   cursor: pointer;
+}
+.pokemon-detail-fav-container:hover {
+   background-color: var(--light-bg);
+}
+
+.pokemon-detail-fav-container-2 {
+   display: flex;
+   color: var(--light-bg);
+   align-items: center;
+   gap: 0.5rem;
+   font-size: 1rem;
+   font-weight: 600;
+}
+
+.pokemon-detail-fav-container-2:hover,
+.pokemon-detail-fav-icon :hover {
+   color: var(--dark-color);
+}
+
+.pokemon-detail-fav-icon {
+   font-size: 1.4rem;
+   color: var(--light-bg);
+}
