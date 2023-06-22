@@ -4,7 +4,7 @@ import Banner from './components/Banner';
 import Header from './components/Header';
 import PokeMarket from './pages/PokeMarket';
 import Pokelist from './pages/Pokelist';
-import Pokemondetail from './pages/PokemonDetail';
+import PokemonDetail from './pages/PokemonDetail';
 import Pokemons from './components/Pokemons';
 import Search from './pages/Search';
 
@@ -35,7 +35,7 @@ function App() {
                   <Route
                      exact
                      path="/pokemon/:id"
-                     element={<Pokemondetail />}
+                     element={<PokemonDetail />}
                   />
                </Routes>
             </div>
