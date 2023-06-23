@@ -1,4 +1,4 @@
-.poke-container {
+.pokelist-container {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -9,19 +9,19 @@
 }
 
 @media (max-width: 768px) {
-   .poke-container {
+   .pokelist-container {
       justify-content: center;
    }
 }
 
 @media (max-width: 650px) {
-   .poke-container {
+   .pokelist-container {
       justify-content: center;
    }
 }
 
 @media (max-width: 425px) {
-   .poke-container {
+   .pokelist-container {
       justify-content: center;
    }
 }

@@ -1,7 +1,5 @@
 import '../assets/styles/pokemonDetails.css';
 
-// import PokeCard from '../components/PokeCard';
-import { Link, useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import {
    fetchPokemonDetail,
@@ -11,31 +9,38 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { FaWeightHanging } from 'react-icons/fa';
 import { MdOutlineCatchingPokemon } from 'react-icons/md';
+import PokeCard from '../components/PokeCard';
 import { RiLineHeight } from 'react-icons/ri';
+import { addPokeToPokeList } from '../redux/Slices/pokeControlSlice';
+import { useParams } from 'react-router-dom';
 
 function PokemonDetail() {
    const { id } = useParams();
    const dispatch = useDispatch();
 
    const pokemon = useSelector((state) => state.pokemonDetail.pokemon);
-   // const similarPokemons = useSelector(
-   //    (state) => state.pokemonDetail.similarPokemons
-   // );
-   // const loading = useSelector((state) => state.pokemonDetail.loading);
-   // const error = useSelector((state) => state.pokemonDetail.error);
+   const similarPokemons = useSelector(
+      (state) => state.pokemonDetail.similarPokemons
+   );
+   const loading = useSelector((state) => state.pokemonDetail.loading);
+   const error = useSelector((state) => state.pokemonDetail.error);
 
    useEffect(() => {
       dispatch(fetchPokemonDetail(id));
       dispatch(fetchSimilarPokemons(id));
    }, [dispatch, id]);
 
-   // if (loading) {
-   //    return <div>Loading...</div>;
-   // }
+   const handleAddPoke = () => {
+      dispatch(addPokeToPokeList(pokemon));
+   };
 
-   // if (error) {
-   //    return <div>Error occurred: {error}</div>;
-   // }
+   if (loading) {
+      return <div>Loading...</div>;
+   }
+
+   if (error) {
+      return <div>Error occurred: {error}</div>;
+   }
 
    return (
       <div className="section">
@@ -66,30 +71,32 @@ function PokemonDetail() {
                      </div>
                      <div className="pokemon-detail-weight">
                         <FaWeightHanging className="pokemon-detail-icons" />{' '}
-                        Weight: {pokemon.weight} hectograms
+                        Weight: {pokemon.weight / 10}kg
                      </div>
                      <div className="pokemon-detail-height">
                         <RiLineHeight className="pokemon-detail-icons" />{' '}
-                        Height: {pokemon.height} decimeters
+                        Height: {pokemon.height / 10}m
                      </div>
                      <div className="pokemon-detail-flavor-text">
                         {pokemon.flavor_text}
                      </div>
-                     <Link to="/">
-                        <div className="pokemon-detail-fav-container">
-                           <div className="pokemon-detail-fav-container-2">
-                              <div className="pokemon-detail-fav-icon">
-                                 <MdOutlineCatchingPokemon />
-                              </div>
-                              <div>Favorilere ekle</div>
+
+                     <div
+                        onClick={handleAddPoke}
+                        className="pokemon-detail-fav-container"
+                     >
+                        <div className="pokemon-detail-fav-container-2">
+                           <div className="pokemon-detail-fav-icon">
+                              <MdOutlineCatchingPokemon />
                            </div>
+                           <div>Favorilere ekle</div>
                         </div>
-                     </Link>
+                     </div>
                   </div>
                </div>
             </>
          )}
-         {/* <div className="section-title">Similar Pokemons</div>
+         <div className="section-title">Similar Pokemons</div>
          <div className="similar-pokemons-container">
             {console.log(similarPokemons)}
             {similarPokemons.map((similarpoke) => (
@@ -98,7 +105,7 @@ function PokemonDetail() {
                   key={similarpoke.id}
                />
             ))}
-         </div> */}
+         </div>
       </div>
    );
 }

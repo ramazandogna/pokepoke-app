@@ -1,11 +1,9 @@
-// PokeCardSlice.js
-
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
 export const fetchPokeData = createAsyncThunk(
-   'pokeCard/fetchPokeData',
+   'pokes/fetchPokeData',
    async () => {
       try {
          const getRandomIds = () => {
@@ -48,8 +46,8 @@ export const fetchPokeData = createAsyncThunk(
    }
 );
 
-const pokeCardSlice = createSlice({
-   name: 'pokeCard',
+const pokeFetchSlice = createSlice({
+   name: 'pokes',
    initialState: {
       pokemonData: [],
       loading: false,
@@ -73,4 +71,4 @@ const pokeCardSlice = createSlice({
    },
 });
 
-export default pokeCardSlice.reducer;
+export default pokeFetchSlice.reducer;

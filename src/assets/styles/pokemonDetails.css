@@ -5,7 +5,7 @@
    justify-content: space-between;
    width: 100%;
    margin: 4rem 0;
-   padding: 5rem 0;
+   padding: 2rem 0;
    background-color: var(--light-bg);
    border-radius: 1rem;
    position: relative;
@@ -127,4 +127,32 @@
 .pokemon-detail-fav-icon {
    font-size: 1.4rem;
    color: var(--light-bg);
+}
+
+.similar-pokemons-container {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 1rem;
+   width: 100%;
+   margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+   .similar-pokemons-container {
+      justify-content: center;
+   }
+}
+
+@media (max-width: 650px) {
+   .similar-pokemons-container {
+      justify-content: center;
+   }
+}
+
+@media (max-width: 425px) {
+   .similar-pokemons-container {
+      justify-content: center;
+   }
 }
