@@ -25,12 +25,14 @@ function PokemonCard({ pokemon }) {
             ))}
          </div>
          <div className="pokemon-description">{pokemon.flavor_text}</div>
-         <Link
-            to={`/pokemon/${pokemon.id}`}
-            className="pokemon-link"
-         >
-            Detayları görüntüle
-         </Link>
+         <div className="pokemon-link-div">
+            <Link
+               to={`/pokemon/${pokemon.id}`}
+               className="pokemon-link"
+            >
+               Show Details
+            </Link>
+         </div>
       </div>
    );
 }

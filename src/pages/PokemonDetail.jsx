@@ -85,12 +85,8 @@ function PokemonDetail() {
                         onClick={handleAddPoke}
                         className="pokemon-detail-fav-container"
                      >
-                        <div className="pokemon-detail-fav-container-2">
-                           <div className="pokemon-detail-fav-icon">
-                              <MdOutlineCatchingPokemon />
-                           </div>
-                           <div>Favorilere ekle</div>
-                        </div>
+                        <MdOutlineCatchingPokemon className="pokemon-detail-fav-icon" />
+                        <p>Add to Pokelist</p>
                      </div>
                   </div>
                </div>
