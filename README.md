@@ -13,12 +13,10 @@ React, Redux-Toolkit, Rooter, Hooks, Axios, Poke API and CSS
 
 ## Screenshots
 
-Will Soon
+-  **Home Page**
 
-<!-- **Add Page**
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/homepage-1.png) -->
 
-![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/add-page.png) -->
+**Pokemon Detail**
 
-<!-- **Watchlist**
-
-![App Screenshot](https://github.com/ramazandogna/movie-api-app/blob/main/src/assets/images/add-page.png) -->
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/poke-detail.png) -->
