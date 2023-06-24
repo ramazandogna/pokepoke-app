@@ -1,5 +1,6 @@
 import '../assets/styles/pokelist.css';
 
+import { Link } from 'react-router-dom';
 import PokeCard from '../components/PokeCard';
 import React from 'react';
 import { selectAllPokes } from '../redux/Slices/pokeControlSlice';
@@ -19,7 +20,9 @@ function Pokelist() {
                   />
                ))
             ) : (
-               <p>Please add your favorite Pokémon</p>
+               <Link to="/">
+                  <p className="add-pokemon">Please Click and Add Some Poke</p>{' '}
+               </Link>
             )}
          </div>
       </div>

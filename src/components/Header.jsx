@@ -50,7 +50,7 @@ function Header() {
                         PokeList
                      </li>
                   </Link>
-                  <Link to="/pokelist">
+                  <Link to="/market">
                      <li className="listItems">
                         <MdShoppingCart className="menuItemIcon" />
                         PokeMarket

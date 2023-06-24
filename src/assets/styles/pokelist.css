@@ -8,6 +8,22 @@
    margin: 1rem 0;
 }
 
+.add-pokemon {
+   font-size: 2rem;
+   color: var(--dark-color);
+   background: var(--light-bg);
+   padding: 2rem;
+   border-radius: 1rem;
+   transition: all 0.4s;
+}
+
+.add-pokemon:hover {
+   background-color: var(--second-color);
+   border-radius: 0;
+   color: var(--light-bg);
+   border: 1px solid var(--light-bg);
+}
+
 @media (max-width: 768px) {
    .pokelist-container {
       justify-content: center;
