@@ -77,6 +77,7 @@ function PokemonDetail() {
                         <ul className="pokemon-detail-ul">
                            {pokemon.types.map((type) => (
                               <li
+                                 style={{ color: typeColor }}
                                  className="pokemon-detail-type"
                                  key={type.type.url}
                               >
