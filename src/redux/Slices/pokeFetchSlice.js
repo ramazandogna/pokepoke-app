@@ -24,51 +24,7 @@ export const fetchPokeData = createAsyncThunk(
                `https://pokeapi.co/api/v2/pokemon/${id}/`
             );
             const pokemonData = response.data;
-            pokemonData.id = id;
-
-            const speciesResponse = await axios.get(
-               `https://pokeapi.co/api/v2/pokemon-species/${id}/`
-            );
-            const flavorTextEntries = speciesResponse.data.flavor_text_entries;
-            const englishEntry = flavorTextEntries.find(
-               (entry) => entry.language.name === 'en'
-            );
-            pokemonData.flavor_text = englishEntry.flavor_text;
-
-            return pokemonData;
-         });
-
-         const results = await Promise.all(promises);
-         return results;
-      } catch (error) {
-         throw Error('Failed to fetch Pokémon data');
-      }
-   }
-);
-
-export const fetchMorePokeData = createAsyncThunk(
-   'pokes/fetchMorePokeData',
-   async () => {
-      try {
-         const getRandomIds = () => {
-            const ids = [];
-            while (ids.length < 16) {
-               const randomId = Math.floor(Math.random() * 898) + 1;
-               if (!ids.includes(randomId)) {
-                  ids.push(randomId);
-               }
-            }
-            return ids;
-         };
-
-         const pokemonIds = getRandomIds();
-
-         const promises = pokemonIds.map(async (id) => {
-            const response = await axios.get(
-               `https://pokeapi.co/api/v2/pokemon/${id}/`
-            );
-            const pokemonData = response.data;
-            pokemonData.id = id;
+            pokemonData.id = id; // ID değerini Pokémon verisine ekliyoruz
 
             const speciesResponse = await axios.get(
                `https://pokeapi.co/api/v2/pokemon-species/${id}/`
@@ -109,18 +65,6 @@ const pokeFetchSlice = createSlice({
             state.pokemonData = action.payload;
          })
          .addCase(fetchPokeData.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.error.message;
-         })
-         .addCase(fetchMorePokeData.pending, (state) => {
-            state.loading = true;
-            state.error = null;
-         })
-         .addCase(fetchMorePokeData.fulfilled, (state, action) => {
-            state.loading = false;
-            state.pokemonData = [...state.pokemonData, ...action.payload];
-         })
-         .addCase(fetchMorePokeData.rejected, (state, action) => {
             state.loading = false;
             state.error = action.error.message;
          });

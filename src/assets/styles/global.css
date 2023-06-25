@@ -25,6 +25,7 @@ body {
    min-height: 100vh;
    margin: 0;
    padding: 0;
+   color: var(--dark-color);
    font-family: var(--font);
    background: rgb(34, 95, 151);
    background: linear-gradient(
@@ -109,9 +110,7 @@ li {
    .container {
       width: 100%;
    }
-   .section {
-      padding: 0;
-   }
+
    .section-title {
       font-size: 1.25;
    }
