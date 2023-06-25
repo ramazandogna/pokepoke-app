@@ -1,16 +1,21 @@
-import { configureStore } from '@reduxjs/toolkit';
-import darkModeReducer from './Slices/darkModeSlice';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+
+import categorySlice from './Slices/categorySlice'; // categorySlice'ı import etmeyi unutmayın
+import darkModeSlice from './Slices/darkModeSlice';
 import pokeControlSlice from './Slices/pokeControlSlice';
 import pokeFetchSlice from './Slices/pokeFetchSlice';
 import pokemonDetailSlice from './Slices/pokemonDetailSlice';
 
+const rootReducer = combineReducers({
+   darkMode: darkModeSlice,
+   pokes: pokeFetchSlice,
+   pokemonDetail: pokemonDetailSlice,
+   category: categorySlice,
+   mypokes: pokeControlSlice,
+});
+
 const store = configureStore({
-   reducer: {
-      darkMode: darkModeReducer,
-      pokes: pokeFetchSlice,
-      pokemonDetail: pokemonDetailSlice,
-      mypokes: pokeControlSlice,
-   },
+   reducer: rootReducer,
 });
 
 export default store;
