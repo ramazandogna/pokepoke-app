@@ -12,6 +12,7 @@ import { MdOutlineCatchingPokemon } from 'react-icons/md';
 import PokeCard from '../components/PokeCard';
 import { RiLineHeight } from 'react-icons/ri';
 import { addPokeToPokeList } from '../redux/Slices/pokeControlSlice';
+import { colors } from '../assets/cardColors';
 import { useParams } from 'react-router-dom';
 
 function PokemonDetail() {
@@ -22,6 +23,7 @@ function PokemonDetail() {
    const similarPokemons = useSelector(
       (state) => state.pokemonDetail.similarPokemons
    );
+
    const loading = useSelector((state) => state.pokemonDetail.loading);
    const error = useSelector((state) => state.pokemonDetail.error);
 
@@ -42,12 +44,26 @@ function PokemonDetail() {
       return <div>Error occurred: {error}</div>;
    }
 
+   if (!pokemon) {
+      return null;
+   }
+
+   const typeColor = colors[pokemon.types[0].type.name];
+
    return (
       <div className="section">
          {pokemon && (
             <>
-               <h2 className="section-title">{pokemon.name} 👀</h2>
-               <div className="pokemon-detail-container">
+               <h2
+                  style={{ backgroundColor: typeColor }}
+                  className="section-title"
+               >
+                  {pokemon.name} 👀
+               </h2>
+               <div
+                  style={{ backgroundColor: typeColor }}
+                  className="pokemon-detail-container"
+               >
                   <div className="pokemon-detail-image-container">
                      <img
                         src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id}.png`}
@@ -92,9 +108,13 @@ function PokemonDetail() {
                </div>
             </>
          )}
-         <div className="section-title">Similar Pokemons</div>
+         <div
+            style={{ backgroundColor: typeColor }}
+            className="section-title"
+         >
+            Similar Pokemons
+         </div>
          <div className="similar-pokemons-container">
-            {console.log(similarPokemons)}
             {similarPokemons.map((similarpoke) => (
                <PokeCard
                   pokemon={similarpoke}

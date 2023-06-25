@@ -4,7 +4,6 @@ import {
    MdCatchingPokemon,
    MdDarkMode,
    MdLightMode,
-   MdLocationSearching,
    MdShoppingCart,
 } from 'react-icons/md';
 import React, { useEffect } from 'react';
@@ -54,12 +53,6 @@ function Header() {
                      <li className="listItems">
                         <MdShoppingCart className="menuItemIcon" />
                         PokeMarket
-                     </li>
-                  </Link>
-                  <Link to="/search">
-                     <li className="listItems">
-                        <MdLocationSearching className="menuItemIcon" />
-                        Search
                      </li>
                   </Link>
                </ul>

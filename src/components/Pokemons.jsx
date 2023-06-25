@@ -15,7 +15,7 @@ function Pokemons() {
    }, [dispatch]);
    return (
       <div className="section">
-         <h2 className="section-title">Types:</h2>
+         <h2 className="section-title">Pokemons:</h2>
          <Categories />
          <div className="poke-container">
             {pokemonData &&

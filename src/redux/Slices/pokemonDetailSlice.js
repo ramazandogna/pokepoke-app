@@ -38,14 +38,11 @@ export const fetchSimilarPokemons = createAsyncThunk(
          const pokemonData = state.pokemonDetail.pokemon;
          const type = pokemonData.types[0].type.name;
 
-         const similarPokemonsResponse = await axios.get(
+         const typeResponse = await axios.get(
             `https://pokeapi.co/api/v2/type/${type}`
          );
 
-         const similarPokemonsData = similarPokemonsResponse.data.pokemon.slice(
-            0,
-            4
-         );
+         const similarPokemonsData = typeResponse.data.pokemon.slice(0, 4);
 
          const similarPromises = similarPokemonsData.map(async (poke) => {
             const response = await axios.get(poke.pokemon.url);
@@ -56,7 +53,7 @@ export const fetchSimilarPokemons = createAsyncThunk(
          const similarResults = await Promise.all(similarPromises);
          return similarResults;
       } catch (error) {
-         throw Error('Failed to fetch similar Pokémons');
+         throw new Error('Failed to fetch similar Pokémons');
       }
    }
 );
