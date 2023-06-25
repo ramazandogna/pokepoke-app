@@ -11,21 +11,34 @@ function Categories() {
    const pokemonData = useSelector((state) => state.pokes.pokemonData);
 
    const handleCategoryClick = (category) => {
-      dispatch(setSelectedCategory(category));
+      dispatch(setSelectedCategory(category === 'All' ? null : category));
    };
+
+   const getUniqueTypes = () => {
+      const uniqueTypes = [];
+      pokemonData.forEach((pokemon) => {
+         const type = pokemon.types[0].type.name;
+         if (!uniqueTypes.includes(type)) {
+            uniqueTypes.push(type);
+         }
+      });
+      return uniqueTypes;
+   };
+
+   const uniqueTypes = getUniqueTypes();
 
    return (
       <div className="category-boxes">
          <div
-            onClick={() => handleCategoryClick(null)}
+            onClick={() => handleCategoryClick('All')}
             className="category-box"
          >
             All
          </div>
-         {pokemonData.map((pokemon) => (
+         {uniqueTypes.map((type) => (
             <CategoryBox
-               key={pokemon.id}
-               pokemon={pokemon}
+               key={type}
+               pokemon={{ types: [{ type: { name: type } }] }}
                onClick={handleCategoryClick}
             />
          ))}
@@ -33,4 +46,4 @@ function Categories() {
    );
 }
 
-export default Categories;
+export default React.memo(Categories);

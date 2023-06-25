@@ -1,4 +1,4 @@
-import '../assets/styles/pokeCard.css';
+import '../assets/styles/pokemons.css';
 
 import {
    addPokeToPokeList,
