@@ -2,17 +2,17 @@
    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
    align-items: center;
    position: fixed;
+   display: flex;
+   justify-content: space-between;
    z-index: 9;
    top: 1rem;
    left: 0;
    right: 0;
-   height: calc(var(--header-height) - 0.75rem);
-   margin-right: auto;
-   margin-left: auto;
+   height: calc(var(--header-height));
+   margin: 0 auto;
    padding: 0.25rem 0;
    background-color: var(--light-bg);
-   border-top: 1rem solid var(--light-bg);
-   border-bottom: 1rem solid var(--light-bg);
+
    border-radius: 2rem;
 }
 
@@ -27,13 +27,14 @@
 }
 
 .logo {
+   margin-left: 1rem;
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 0.5rem;
 }
 
 .logo img {
+   margin-right: 0.25rem;
    object-fit: cover;
    width: 42px;
    transition: all 0.35s;
@@ -43,17 +44,25 @@
    transform: scale(1.15);
 }
 
-.logo span {
+.logo-link {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.logo-text {
    font-size: 1.5rem;
    font-weight: 500;
    color: var(--first-color);
    transition: all 0.35s;
 }
-.logo span:hover {
+
+.logo-text:hover {
    color: var(--second-color);
 }
 
 .list {
+   margin-right: 1rem;
    display: flex;
    align-items: center;
    color: var(--first-color);
@@ -77,26 +86,6 @@
    color: var(--second-color);
 }
 
-.themeSwitcher {
-   place-items: center;
-   display: grid;
-   position: relative;
-   width: 38px;
-   height: 38px;
-   background-color: var(--opacity-bg);
-   cursor: pointer;
-   border-radius: 50%;
-   transition: all 0.35s;
-}
-
-.themeSwitcher:hover {
-   transform: scale(1.15);
-}
-
-.themeSwitcher .icon {
-   color: var(--dark-color);
-}
-
 .right {
    display: flex;
    justify-content: center;
@@ -106,5 +95,52 @@
 .menuItemIcon {
    width: 22px;
    height: 22px;
-   margin-right: 0.25rem;
+   margin-right: 0.45rem;
+}
+
+.hamburger-icon {
+   width: 44px;
+   height: 44px;
+   margin-right: 1.75rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 760px) {
+   .header {
+      height: auto;
+      position: relative;
+      padding: 1rem 0;
+   }
+
+   .logo {
+      margin-left: 1.75rem;
+   }
+
+   .list {
+      display: none;
+   }
+
+   .menu-icon {
+      display: block;
+      cursor: pointer;
+   }
+
+   .open .list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0.5rem;
+      width: 50vw;
+   }
+
+   .open .listItems {
+      display: flex;
+      align-items: center;
+      border: 2px solid var(--black-color);
+      width: 100%;
+   }
+
+   .open .header-container {
+      justify-content: space-between;
+   }
 }

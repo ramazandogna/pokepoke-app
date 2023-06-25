@@ -2,46 +2,68 @@ import '../assets/styles/header.css';
 
 import {
    MdCatchingPokemon,
-   MdDarkMode,
-   MdLightMode,
+   MdClose,
+   MdMenu,
    MdShoppingCart,
 } from 'react-icons/md';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import Logo from '../assets/img/pokemon-icon.jpeg';
-import { toggleDarkMode } from '../redux/Slices/darkModeSlice';
 
 function Header() {
-   const dispatch = useDispatch();
-   const darkMode = useSelector((state) => state.darkMode);
+   const [menuOpen, setMenuOpen] = useState(false);
+   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
    useEffect(() => {
-      if (darkMode) {
-         document.documentElement.classList.add('dark');
-      } else {
-         document.documentElement.classList.remove('dark');
-      }
-   }, [darkMode]);
+      const mediaQuery = window.matchMedia('(max-width: 760px)');
+      setIsSmallScreen(mediaQuery.matches);
 
-   const handleToggle = () => {
-      dispatch(toggleDarkMode());
+      const handleMediaQueryChange = (e) => {
+         setIsSmallScreen(e.matches);
+         setMenuOpen(false);
+      };
+
+      mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+      return () => {
+         mediaQuery.removeEventListener('change', handleMediaQueryChange);
+      };
+   }, []);
+
+   const handleMenuToggle = () => {
+      setMenuOpen(!menuOpen);
    };
 
    return (
-      <header className="header container">
-         <div className=" header-container container">
-            <Link to="/">
-               <div className="logo">
-                  <img
-                     src={Logo}
-                     alt="logo"
-                  />
-                  <span className="logo">Pokepoke</span>
-               </div>
+      <header className={`header container ${menuOpen ? 'open' : ''}`}>
+         <div className="logo">
+            <Link
+               className="logo-link"
+               to="/"
+            >
+               <img
+                  src={Logo}
+                  alt="logo"
+               />
+               <div className="logo-text">Pokepoke</div>
             </Link>
-            <div className="right">
+         </div>
+
+         <div className="right">
+            {isSmallScreen && (
+               <div
+                  className="menu-icon"
+                  onClick={handleMenuToggle}
+               >
+                  {menuOpen ? (
+                     <MdClose className="hamburger-icon" />
+                  ) : (
+                     <MdMenu className="hamburger-icon" />
+                  )}
+               </div>
+            )}
+            {!isSmallScreen && (
                <ul className="list">
                   <Link to="/pokelist">
                      <li className="listItems">
@@ -56,18 +78,25 @@ function Header() {
                      </li>
                   </Link>
                </ul>
-               <span
-                  onClick={handleToggle}
-                  className="themeSwitcher"
-               >
-                  {darkMode ? (
-                     <MdDarkMode className="icon" />
-                  ) : (
-                     <MdLightMode className="icon" />
-                  )}
-               </span>
-            </div>
+            )}
          </div>
+
+         {isSmallScreen && menuOpen && (
+            <ul className="list">
+               <Link to="/pokelist">
+                  <li className="listItems">
+                     <MdCatchingPokemon className="menuItemIcon" />
+                     PokeList
+                  </li>
+               </Link>
+               <Link to="/market">
+                  <li className="listItems">
+                     <MdShoppingCart className="menuItemIcon" />
+                     PokeMarket
+                  </li>
+               </Link>
+            </ul>
+         )}
       </header>
    );
 }

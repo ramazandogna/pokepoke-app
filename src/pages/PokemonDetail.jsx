@@ -97,13 +97,15 @@ function PokemonDetail() {
                      <div className="pokemon-detail-flavor-text">
                         {pokemon.flavor_text}
                      </div>
-
                      <div
                         onClick={handleAddPoke}
                         className="pokemon-detail-fav-container"
                      >
-                        <MdOutlineCatchingPokemon className="pokemon-detail-fav-icon" />
-                        <p>Add to Pokelist</p>
+                        <button className="poke-add-button">
+                           {' '}
+                           <MdOutlineCatchingPokemon className="pokemon-detail-fav-icon" />
+                           <p>Add to Pokelist</p>
+                        </button>
                      </div>
                   </div>
                </div>
