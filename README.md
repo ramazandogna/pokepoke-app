@@ -15,8 +15,28 @@ React, Redux-Toolkit, Rooter, Hooks, Axios, Poke API and CSS
 
 -  **Home Page**
 
-![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/homepage-1.png) -->
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/homepage-1.png)
 
-**Pokemon Detail**
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/homepage-2.png)
 
-![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/poke-detail.png) -->
+-  **Pokemon Detail**
+
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/poke-detail.png)
+
+-  **Pokemon Store**
+
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/poke-store.png)
+
+-  **Pokemon List**
+
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/pokelist.png)
+
+-  **Cart**
+
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/cart.png)
+
+-  **Mobile Appearances**
+
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/mobile-1.png)
+
+![App Screenshot](https://github.com/ramazandogna/pokepoke-app/blob/main/src/assets/img/Screenshots/mobile-2.png)
