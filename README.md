@@ -9,7 +9,7 @@ to see the live demo of the project.
 
 ## Techs
 
-React, Redux-Toolkit, Rooter, Hooks, Axios, Poke API and CSS
+React (Axios, Rooter, Hooks, Redux Toolkit, Redux Persist), CSS.
 
 ## Screenshots
 
