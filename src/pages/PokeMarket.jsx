@@ -7,7 +7,6 @@ import axios from 'axios';
 
 function PokeMarket() {
    const [items, setItems] = useState([]);
-   const [offset, setOffset] = useState(0);
 
    useEffect(() => {
       fetchItems();
@@ -16,7 +15,7 @@ function PokeMarket() {
    const fetchItems = async () => {
       try {
          const response = await axios.get(
-            `https://pokeapi.co/api/v2/item/?limit=200&offset=${offset}`
+            'https://pokeapi.co/api/v2/item/?limit=200'
          );
          const itemResults = response.data.results;
 
@@ -26,14 +25,10 @@ function PokeMarket() {
          });
 
          const itemData = await Promise.all(itemPromises);
-         setItems((prevItems) => [...prevItems, ...itemData]);
+         setItems(itemData);
       } catch (error) {
          console.error('Failed to fetch item data', error);
       }
-   };
-
-   const handleLoadMore = () => {
-      setOffset((prevOffset) => prevOffset + 50);
    };
 
    return (
@@ -44,15 +39,9 @@ function PokeMarket() {
                <PokeItem
                   key={item.id}
                   item={item}
-               /> // PokeItem bileşenini kullan
+               />
             ))}
          </div>
-         <button
-            className="load-more-button"
-            onClick={handleLoadMore}
-         >
-            Load More
-         </button>
       </div>
    );
 }

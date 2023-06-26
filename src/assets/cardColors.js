@@ -13,7 +13,7 @@ export const colors = {
    flying: '#A890F0',
    fighting: '#C03028',
    normal: '#A8A878',
-   ice: '#98D8D8 ',
+   ice: '#98D8D8',
    ghost: '#c5cdd8',
    dark: '#705848',
    steel: '#B8B8D0',

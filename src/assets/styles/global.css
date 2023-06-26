@@ -89,6 +89,23 @@ li {
    padding: 10px 0;
 }
 
+.github:hover {
+   transition: all 0.5s;
+   scale: 1.5;
+}
+.linkedin:hover {
+   transition: all 0.5s;
+   scale: 1.5;
+}
+
+.created {
+   border-bottom: 2px solid rgb(40, 45, 53, 0);
+}
+.created:hover {
+   transition: all 0.5s;
+   border-bottom: 2px solid rgb(40, 45, 53, 1);
+}
+
 @media screen and (max-width: 1500px) {
    .container {
       width: 1140px;

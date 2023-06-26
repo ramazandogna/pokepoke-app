@@ -69,46 +69,49 @@ function PokemonDetail() {
                >
                   <div className="pokemon-detail-image-container">
                      <img
-                        src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id}.png`}
+                        src={pokemon.sprites.front_default}
                         alt={`poke ${pokemon.id}`}
                         className="pokemon-detail-image"
                      />
                   </div>
                   <div className="pokemon-details-container">
-                     <div className="pokemon-detail-name">{pokemon.name}</div>
-                     <div className="pokemon-detail-type-container">
-                        <ul className="pokemon-detail-ul">
-                           {pokemon.types.map((type) => (
-                              <li
-                                 style={{ color: typeColor }}
-                                 className="pokemon-detail-type"
-                                 key={type.type.url}
-                              >
-                                 {type.type.name}
-                              </li>
-                           ))}
-                        </ul>
-                     </div>
-                     <div className="pokemon-detail-weight">
-                        <FaWeightHanging className="pokemon-detail-icons" />{' '}
-                        Weight: {pokemon.weight / 10}kg
-                     </div>
-                     <div className="pokemon-detail-height">
-                        <RiLineHeight className="pokemon-detail-icons" />{' '}
-                        Height: {pokemon.height / 10}m
-                     </div>
-                     <div className="pokemon-detail-flavor-text">
-                        {pokemon.flavor_text}
-                     </div>
-                     <div
-                        onClick={handleAddPoke}
-                        className="pokemon-detail-fav-container"
-                     >
-                        <button className="poke-add-button">
-                           {' '}
-                           <MdOutlineCatchingPokemon className="pokemon-detail-fav-icon" />
-                           <p>Add to Pokelist</p>
-                        </button>
+                     <div className="pokemon-details-wrapper">
+                        <div className="pokemon-detail-name">
+                           {pokemon.name}
+                        </div>
+                        <div className="pokemon-detail-type-container">
+                           <ul className="pokemon-detail-ul">
+                              {pokemon.types.map((type) => (
+                                 <li
+                                    style={{ color: typeColor }}
+                                    className="pokemon-detail-type"
+                                    key={type.type.url}
+                                 >
+                                    {type.type.name}
+                                 </li>
+                              ))}
+                           </ul>
+                        </div>
+                        <div className="pokemon-detail-weight">
+                           <FaWeightHanging className="pokemon-detail-icons" />{' '}
+                           Weight: {pokemon.weight / 10}kg
+                        </div>
+                        <div className="pokemon-detail-height">
+                           <RiLineHeight className="pokemon-detail-icons" />{' '}
+                           Height: {pokemon.height / 10}m
+                        </div>
+                        <div className="pokemon-detail-flavor-text">
+                           {pokemon.flavor_text}
+                        </div>
+                        <div
+                           onClick={handleAddPoke}
+                           className="pokemon-detail-fav-container"
+                        >
+                           <button className="poke-add-button">
+                              <MdOutlineCatchingPokemon className="pokemon-detail-fav-icon" />
+                              <p>Add to Pokelist</p>
+                           </button>
+                        </div>
                      </div>
                   </div>
                </div>

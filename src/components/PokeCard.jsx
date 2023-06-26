@@ -29,8 +29,9 @@ function PokemonCard({ pokemon }) {
          className="poke-card"
       >
          <div className="pokemon-image-container">
+            {console.log(pokemon)}
             <img
-               src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id}.png`}
+               src={pokemon.sprites.front_default}
                alt={`poke ${pokemon.id}`}
                className="pokemon-image"
             />

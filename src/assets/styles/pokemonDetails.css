@@ -15,6 +15,7 @@
    display: grid;
    justify-content: center;
    align-items: center;
+   height: 550px;
    flex-basis: 50%;
    grid-column: 1;
    position: relative;
@@ -23,9 +24,8 @@
 
 .pokemon-detail-image {
    object-fit: cover;
-   width: 95%;
-   height: 95%;
-   padding: 7rem 0 2rem 2rem;
+   width: 80%;
+   height: 80%;
    transition: all 0.35s;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.1),
       0 8px 10px rgba(0, 0, 0, 0.1), 0 10px 12px rgba(0, 0, 0, 0.1);
@@ -40,15 +40,22 @@
 
 .pokemon-details-container {
    flex-basis: 50%;
+   height: 550px;
    padding: 2rem 2rem 0 0;
    position: relative;
+}
+
+.pokemon-details-wrapper {
+   width: 80%;
+   height: 80%;
+   margin-top: 1rem;
 }
 
 .pokemon-detail-name {
    margin-bottom: 1rem;
    color: var(--dark-color);
    transition: all 0.35s;
-   font-size: 4.25rem;
+   font-size: 3.25rem;
    font-weight: bold;
    text-transform: uppercase;
    letter-spacing: 2px;
@@ -67,7 +74,7 @@
 .pokemon-detail-type {
    background-color: var(--dark-color);
    display: inline-block;
-   padding: 0.25rem 1.25rem;
+   padding: 0.2rem 1.25rem;
    color: var(--light-bg);
    margin: 0 0.25rem 1.5rem 0;
 }
@@ -82,6 +89,7 @@
 .pokemon-detail-weight,
 .pokemon-detail-height {
    display: flex;
+   letter-spacing: 1px;
    align-items: center;
    margin-bottom: 1rem;
    font-size: 1.5rem;

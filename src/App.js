@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Cart from './pages/Cart';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import PokeMarket from './pages/PokeMarket';
 import Pokelist from './pages/Pokelist';
@@ -38,6 +39,7 @@ function App() {
                </Routes>
             </div>
          </div>
+         <Footer />
       </div>
    );
 }
