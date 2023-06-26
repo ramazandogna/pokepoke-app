@@ -3,17 +3,20 @@ import {
    configureStore,
    getDefaultMiddleware,
 } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
 
-import categorySlice from './Slices/categorySlice'; // categorySlice'ı import etmeyi unutmayın
+import categorySlice from './Slices/categorySlice';
 import itemControlSlice from './Slices/itemControlSlice';
 import pokeControlSlice from './Slices/pokeControlSlice';
 import pokeFetchSlice from './Slices/pokeFetchSlice';
 import pokemonDetailSlice from './Slices/pokemonDetailSlice';
+import storage from 'redux-persist/lib/storage';
 
-const middleware = getDefaultMiddleware({
-   serializableCheck: false, // Bu hatayı önlemek için devre dışı bırakma
-   immutableCheck: false, // Gerektiğinde immutable kontrollerini devre dışı bırakma
-});
+const persistConfig = {
+   key: 'root',
+   storage,
+   blacklist: ['pokes'], // pokeFetchSlice'i depolama işleminden hariç tutar
+};
 
 const rootReducer = combineReducers({
    pokes: pokeFetchSlice,
@@ -23,9 +26,15 @@ const rootReducer = combineReducers({
    item: itemControlSlice,
 });
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 const store = configureStore({
-   reducer: rootReducer,
-   middleware,
+   reducer: persistedReducer,
+   middleware: getDefaultMiddleware({
+      serializableCheck: false, // SerializableStateInvariantMiddleware'i devre dışı bırakır
+   }),
 });
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };

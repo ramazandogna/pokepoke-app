@@ -8,7 +8,7 @@ export const fetchPokeData = createAsyncThunk(
       try {
          const getRandomIds = () => {
             const ids = [];
-            while (ids.length < 16) {
+            while (ids.length < 40) {
                const randomId = Math.floor(Math.random() * 898) + 1;
                if (!ids.includes(randomId)) {
                   ids.push(randomId);

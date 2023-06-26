@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const pokeControlSlice = createSlice({
-   name: 'mypokes',
+   name: 'pokes',
    initialState: initialState,
    reducers: {
       addPokeToPokeList(state, action) {

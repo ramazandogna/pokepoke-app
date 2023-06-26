@@ -11,10 +11,19 @@ import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import Logo from '../assets/img/pokemon-icon.jpeg';
+import { selectAllItems } from '../redux/Slices/itemControlSlice';
+import { selectAllPokes } from '../redux/Slices/pokeControlSlice';
+import { useSelector } from 'react-redux';
 
 function Header() {
    const [menuOpen, setMenuOpen] = useState(false);
    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+   const itemList = useSelector(selectAllItems);
+   const itemCount = itemList.length;
+
+   const pokeList = useSelector(selectAllPokes);
+   const pokeCount = pokeList.length;
 
    useEffect(() => {
       const mediaQuery = window.matchMedia('(max-width: 760px)');
@@ -69,7 +78,7 @@ function Header() {
                   <Link to="/pokelist">
                      <li className="listItems">
                         <MdCatchingPokemon className="menuItemIcon" />
-                        Poke List
+                        Poke List{pokeCount ? `: ${pokeCount}` : null}
                      </li>
                   </Link>
                   <Link to="/market">
@@ -81,7 +90,7 @@ function Header() {
                   <Link to="/cart">
                      <li className="listItems">
                         <MdShoppingCart className="menuItemIcon" />
-                        Cart
+                        Cart{itemCount ? `: ${itemCount}` : null}
                      </li>
                   </Link>
                </ul>
@@ -93,7 +102,7 @@ function Header() {
                <Link to="/pokelist">
                   <li className="listItems">
                      <MdCatchingPokemon className="menuItemIcon" />
-                     Poke List
+                     Poke List{pokeCount ? `: ${pokeCount}` : null}
                   </li>
                </Link>
                <Link to="/market">
@@ -105,7 +114,7 @@ function Header() {
                <Link to="/cart">
                   <li className="listItems">
                      <MdShoppingCart className="menuItemIcon" />
-                     Cart
+                     Cart{itemCount ? `: ${itemCount}` : null}
                   </li>
                </Link>
             </ul>

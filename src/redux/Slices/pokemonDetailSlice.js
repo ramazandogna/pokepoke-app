@@ -32,21 +32,34 @@ export const fetchPokemonDetail = createAsyncThunk(
 // Benzer Pokemonları çekme asenkron eylemi
 export const fetchSimilarPokemons = createAsyncThunk(
    'pokemonDetail/fetchSimilarPokemons',
-   async (id, { getState }) => {
+   async (type) => {
       try {
-         const state = getState();
-         const pokemonData = state.pokemonDetail.pokemon;
-         const type = pokemonData.types[0].type.name;
-
-         const typeResponse = await axios.get(
+         const response = await axios.get(
             `https://pokeapi.co/api/v2/type/${type}`
          );
+         const pokemonTypeData = response.data;
 
-         const similarPokemonsData = typeResponse.data.pokemon.slice(0, 4);
+         // İlgili tipte bulunan tüm pokemonları al
+         const allPokemons = pokemonTypeData.pokemon.map(
+            (poke) => poke.pokemon
+         );
 
-         const similarPromises = similarPokemonsData.map(async (poke) => {
-            const response = await axios.get(poke.pokemon.url);
+         // İlk 4 benzer pokemonu al
+         const similarPokemons = allPokemons.slice(0, 4);
+
+         const similarPromises = similarPokemons.map(async (poke) => {
+            const response = await axios.get(poke.url);
             const pokemonData = response.data;
+
+            const speciesResponse = await axios.get(
+               `https://pokeapi.co/api/v2/pokemon-species/${pokemonData.id}/`
+            );
+            const flavorTextEntries = speciesResponse.data.flavor_text_entries;
+            const englishEntry = flavorTextEntries.find(
+               (entry) => entry.language.name === 'en'
+            );
+            pokemonData.flavor_text = englishEntry.flavor_text;
+
             return pokemonData;
          });
 

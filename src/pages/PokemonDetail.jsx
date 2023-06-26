@@ -28,8 +28,11 @@ function PokemonDetail() {
    const error = useSelector((state) => state.pokemonDetail.error);
 
    useEffect(() => {
-      dispatch(fetchPokemonDetail(id));
-      dispatch(fetchSimilarPokemons(id));
+      dispatch(fetchPokemonDetail(id)).then((action) => {
+         const pokemonData = action.payload;
+         const type = pokemonData.types[0].type.name;
+         dispatch(fetchSimilarPokemons(type, id)); // id parametresini iletiyoruz
+      });
    }, [dispatch, id]);
 
    const handleAddPoke = () => {
@@ -118,10 +121,11 @@ function PokemonDetail() {
             Similar Pokemons
          </div>
          <div className="similar-pokemons-container">
-            {similarPokemons.map((similarpoke) => (
+            {console.log(similarPokemons)}
+            {similarPokemons.map((similarPoke) => (
                <PokeCard
-                  pokemon={similarpoke}
-                  key={similarpoke.id}
+                  pokemon={similarPoke}
+                  key={similarPoke.id}
                />
             ))}
          </div>
