@@ -5,6 +5,7 @@ import {
    MdClose,
    MdMenu,
    MdShoppingCart,
+   MdStore,
 } from 'react-icons/md';
 import React, { useEffect, useState } from 'react';
 
@@ -68,13 +69,19 @@ function Header() {
                   <Link to="/pokelist">
                      <li className="listItems">
                         <MdCatchingPokemon className="menuItemIcon" />
-                        PokeList
+                        Poke List
                      </li>
                   </Link>
                   <Link to="/market">
                      <li className="listItems">
+                        <MdStore className="menuItemIcon" />
+                        Poke Store
+                     </li>
+                  </Link>
+                  <Link to="/cart">
+                     <li className="listItems">
                         <MdShoppingCart className="menuItemIcon" />
-                        PokeMarket
+                        Cart
                      </li>
                   </Link>
                </ul>
@@ -86,13 +93,19 @@ function Header() {
                <Link to="/pokelist">
                   <li className="listItems">
                      <MdCatchingPokemon className="menuItemIcon" />
-                     PokeList
+                     Poke List
                   </li>
                </Link>
                <Link to="/market">
                   <li className="listItems">
+                     <MdStore className="menuItemIcon" />
+                     Poke Store
+                  </li>
+               </Link>
+               <Link to="/cart">
+                  <li className="listItems">
                      <MdShoppingCart className="menuItemIcon" />
-                     PokeMarket
+                     Cart
                   </li>
                </Link>
             </ul>

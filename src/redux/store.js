@@ -5,6 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 
 import categorySlice from './Slices/categorySlice'; // categorySlice'ı import etmeyi unutmayın
+import itemControlSlice from './Slices/itemControlSlice';
 import pokeControlSlice from './Slices/pokeControlSlice';
 import pokeFetchSlice from './Slices/pokeFetchSlice';
 import pokemonDetailSlice from './Slices/pokemonDetailSlice';
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
    pokemonDetail: pokemonDetailSlice,
    category: categorySlice,
    mypokes: pokeControlSlice,
+   item: itemControlSlice,
 });
 
 const store = configureStore({

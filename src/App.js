@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+import Cart from './pages/Cart';
 import Header from './components/Header';
 import PokeMarket from './pages/PokeMarket';
 import Pokelist from './pages/Pokelist';
@@ -10,7 +11,6 @@ function App() {
    return (
       <div>
          <Header />
-
          <div className="main-section">
             <div className="container">
                <Routes>
@@ -22,7 +22,10 @@ function App() {
                      path="/pokelist"
                      element={<Pokelist />}
                   />
-
+                  <Route
+                     path="/cart"
+                     element={<Cart />}
+                  />
                   <Route
                      path="/market"
                      element={<PokeMarket />}

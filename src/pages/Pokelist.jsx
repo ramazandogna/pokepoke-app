@@ -21,7 +21,9 @@ function Pokelist() {
                ))
             ) : (
                <Link to="/">
-                  <p className="add-pokemon">Please Click and Add Some Poke</p>{' '}
+                  <p className="add-pokemon">
+                     Please Click and Add Some Poke from Pokedex
+                  </p>{' '}
                </Link>
             )}
          </div>

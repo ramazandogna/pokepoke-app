@@ -46,7 +46,7 @@ function Pokemons() {
                onClick={changePokemonData}
             >
                <FaRandom />{' '}
-               <p className="generate-button-text">Generate New Pokemons</p>
+               <p className="generate-button-text">Bring New Pokemons</p>
             </button>
          </div>
 
