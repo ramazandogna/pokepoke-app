@@ -1,14 +1,67 @@
+.section-2 {
+   border-top: 1px solid white;
+   border-bottom: 1px solid white;
+   padding: 1rem 0rem;
+}
 .poke-container {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   align-items: flex-start;
+   align-items: center;
    justify-content: center;
    gap: 1rem;
    width: 100%;
    margin: 1rem 0;
 }
 
+.poke-generate-container {
+   margin: 1rem 0;
+   height: 2.3rem;
+   border-bottom: 1px solid white;
+}
+
+.poke-generate-button {
+   background-color: var(--light-bg);
+   display: flex;
+   align-items: center;
+   padding: 0.7rem 2rem 0.7rem 0.5rem;
+   border-radius: 0.5rem;
+   letter-spacing: 1px;
+   gap: 1rem;
+   font-size: 2rem;
+   transition: padding 0.7s, width 0.4s;
+   position: relative;
+   margin: 1 0rem;
+   box-shadow: 8px 12px rgba(0, 0, 0, 0.2), 0 12px 16px rgba(0, 0, 0, 0.1);
+}
+
+.poke-generate-button:hover {
+   padding-right: 4rem;
+   width: fit-content;
+}
+
+.poke-generate-button:hover .generate-button-text {
+   display: flex;
+   animation: fade-in 0.7s forwards;
+}
+
+@keyframes fade-in {
+   0% {
+      opacity: 0;
+      transform: translateX(-50px);
+   }
+
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+.generate-button-text {
+   display: none;
+   font-size: 1.3rem;
+   opacity: 0;
+}
 .poke-card {
    box-shadow: 5px 8px 20px 4px #7b808a16;
    /* width: calc(23% - 0.75rem); */
