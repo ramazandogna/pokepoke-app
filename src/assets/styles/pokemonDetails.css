@@ -134,6 +134,11 @@
    color: var(--dark-color);
 }
 
+.poke-add-button:disabled {
+   opacity: 0.3;
+   cursor: not-allowed;
+}
+
 .poke-add-button:hover .pokemon-detail-fav-icon {
    color: var(--dark-color);
 }

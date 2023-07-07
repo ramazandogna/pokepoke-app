@@ -2,6 +2,10 @@ import '../assets/styles/pokemonDetails.css';
 
 import React, { useEffect } from 'react';
 import {
+   addPokeToPokeList,
+   selectAllPokes,
+} from '../redux/Slices/pokeControlSlice';
+import {
    fetchPokemonDetail,
    fetchSimilarPokemons,
 } from '../redux/Slices/pokemonDetailSlice';
@@ -11,7 +15,6 @@ import { FaWeightHanging } from 'react-icons/fa';
 import { MdOutlineCatchingPokemon } from 'react-icons/md';
 import PokeCard from '../components/PokeCard';
 import { RiLineHeight } from 'react-icons/ri';
-import { addPokeToPokeList } from '../redux/Slices/pokeControlSlice';
 import { colors } from '../assets/cardColors';
 import { useParams } from 'react-router-dom';
 
@@ -23,6 +26,10 @@ function PokemonDetail() {
    const similarPokemons = useSelector(
       (state) => state.pokemonDetail.similarPokemons
    );
+
+   const pokemonStore = useSelector(selectAllPokes);
+   const storedPokemons = pokemonStore.map((i) => i.id === pokemon.id);
+   const isPokemonStored = storedPokemons !== undefined;
 
    const loading = useSelector((state) => state.pokemonDetail.loading);
    const error = useSelector((state) => state.pokemonDetail.error);
@@ -103,11 +110,12 @@ function PokemonDetail() {
                         <div className="pokemon-detail-flavor-text">
                            {pokemon.flavor_text}
                         </div>
-                        <div
-                           onClick={handleAddPoke}
-                           className="pokemon-detail-fav-container"
-                        >
-                           <button className="poke-add-button">
+                        <div className="pokemon-detail-fav-container">
+                           <button
+                              onClick={handleAddPoke}
+                              className="poke-add-button"
+                              disabled={isPokemonStored}
+                           >
                               <MdOutlineCatchingPokemon className="pokemon-detail-fav-icon" />
                               <p>Add to Pokelist</p>
                            </button>

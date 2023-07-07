@@ -5,6 +5,7 @@ import React from 'react';
 const Footer = () => {
    return (
       <div
+         className="footerWrapper"
          style={{
             display: 'flex',
             justifyContent: 'center',
@@ -16,6 +17,7 @@ const Footer = () => {
             style={{
                marginRight: '1rem',
                fontWeight: 'bold',
+               color: '#dcdcdc',
             }}
             className="created"
          >
