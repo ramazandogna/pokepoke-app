@@ -8,10 +8,16 @@
    flex-direction: row;
    flex-wrap: wrap;
    align-items: center;
-   justify-content: center;
+   justify-content: space-between;
    gap: 1rem;
    width: 100%;
    margin: 1rem 0;
+}
+
+@media screen and (max-width: 650px) {
+   .poke-container {
+      justify-content: center;
+   }
 }
 
 .poke-generate-container {
@@ -69,13 +75,14 @@
    font-size: 1.3rem;
    opacity: 0;
 }
+
 .poke-card {
    box-shadow: 4px 6px rgba(0, 0, 0, 0.2), 0 12px 16px rgba(0, 0, 0, 0.1);
    /* width: calc(23% - 0.75rem); */
    display: flex;
    flex-direction: column;
    position: relative;
-   width: 264px;
+   width: 284px;
    height: 450px;
    margin: 1rem auto;
    padding: 1rem;

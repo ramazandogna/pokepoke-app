@@ -7,6 +7,7 @@ import Categories from './Categories';
 import { FaRandom } from 'react-icons/fa';
 import PokeCard from './PokeCard';
 import { fetchPokeData } from '../redux/Slices/pokeFetchSlice';
+import { motion } from 'framer-motion';
 import { setSelectedCategory } from '../redux/Slices/categorySlice';
 
 function Pokemons() {
@@ -32,8 +33,34 @@ function Pokemons() {
       dispatch(fetchPokeData());
    };
 
+   const container = {
+      visible: {
+         transition: {
+            delayChildren: 1,
+            staggerChildren: 1,
+         },
+      },
+   };
+
+   const item = {
+      hidden: {
+         opacity: 0,
+         translateX: -80,
+      },
+
+      visible: {
+         opacity: 1,
+         translateX: 0,
+      },
+   };
+
    return (
-      <div className="section">
+      <motion.div
+         initial={{ opacity: 0, translateY: 30 }}
+         animate={{ opacity: 1, translateY: 0 }}
+         transition={{ delay: 0.05 }}
+         className="section"
+      >
          <h2 className="section-title">Pokemons:</h2>
 
          <Categories setSelectedCategory={handleCategoryClick} />
@@ -50,15 +77,22 @@ function Pokemons() {
             </button>
          </div>
 
-         <div className="poke-container">
+         <motion.div
+            className="poke-container"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+         >
             {filteredPokemonData.map((pokemon) => (
-               <PokeCard
+               <motion.div
                   key={pokemon.id}
-                  pokemon={pokemon}
-               />
+                  variants={item}
+               >
+                  <PokeCard pokemon={pokemon} />
+               </motion.div>
             ))}
-         </div>
-      </div>
+         </motion.div>
+      </motion.div>
    );
 }
 

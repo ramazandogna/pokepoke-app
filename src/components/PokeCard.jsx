@@ -13,6 +13,7 @@ import { FaTimesCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { colors } from '../assets/cardColors';
+import { motion } from 'framer-motion';
 
 function PokemonCard({ pokemon }) {
    const dispatch = useDispatch();
@@ -24,12 +25,13 @@ function PokemonCard({ pokemon }) {
    const typeColor = colors[pokemon.types[0].type.name];
 
    return (
-      <div
+      <motion.div
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
          style={{ backgroundColor: typeColor }}
          className="poke-card"
       >
          <div className="pokemon-image-container">
-            {console.log(pokemon)}
             <img
                src={pokemon.sprites.front_default}
                alt={`poke ${pokemon.id}`}
@@ -78,7 +80,7 @@ function PokemonCard({ pokemon }) {
                </div>
             </Link>
          </div>
-      </div>
+      </motion.div>
    );
 }
 

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import PokeItem from '../components/PokeItem';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 function PokeMarket() {
    const [items, setItems] = useState([]);
@@ -31,18 +32,51 @@ function PokeMarket() {
       }
    };
 
+   const container = {
+      visible: {
+         transition: {
+            delayChildren: 1,
+            staggerChildren: 1,
+         },
+      },
+   };
+
+   const item = {
+      hidden: {
+         opacity: 0,
+         translateX: -80,
+      },
+
+      visible: {
+         opacity: 1,
+         translateX: 0,
+      },
+   };
+
    return (
-      <div className="section">
+      <motion.div
+         initial={{ opacity: 0, translateY: 30 }}
+         animate={{ opacity: 1, translateY: 0 }}
+         transition={{ delay: 0.05 }}
+         className="section"
+      >
          <h2 className="section-title">Poke Store:</h2>
-         <div className="item-list">
-            {items.map((item) => (
-               <PokeItem
+         <motion.div
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            className="item-list"
+         >
+            {items.map((tool) => (
+               <motion.div
+                  variants={item}
                   key={item.id}
-                  item={item}
-               />
+               >
+                  <PokeItem item={tool} />
+               </motion.div>
             ))}
-         </div>
-      </div>
+         </motion.div>
+      </motion.div>
    );
 }
 

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CategoryBox from './CategoryBox';
 import React from 'react';
+import { motion } from 'framer-motion';
 import { setSelectedCategory } from '../redux/Slices/categorySlice';
 
 function Categories() {
@@ -27,8 +28,34 @@ function Categories() {
 
    const uniqueTypes = getUniqueTypes();
 
+   const container = {
+      visible: {
+         transition: {
+            delayChildren: 1,
+            staggerChildren: 1,
+         },
+      },
+   };
+
+   const item = {
+      hidden: {
+         opacity: 0,
+         translateY: -30,
+      },
+
+      visible: {
+         opacity: 1,
+         translateY: 0,
+      },
+   };
+
    return (
-      <div className="category-boxes">
+      <motion.div
+         variants={container}
+         initial="hidden"
+         animate="visible"
+         className="category-boxes"
+      >
          <div
             onClick={() => handleCategoryClick('All')}
             className="category-box"
@@ -36,13 +63,15 @@ function Categories() {
             All
          </div>
          {uniqueTypes.map((type) => (
-            <CategoryBox
-               key={type}
-               pokemon={{ types: [{ type: { name: type } }] }}
-               onClick={handleCategoryClick}
-            />
+            <motion.div variants={item}>
+               <CategoryBox
+                  key={type}
+                  pokemon={{ types: [{ type: { name: type } }] }}
+                  onClick={handleCategoryClick}
+               />
+            </motion.div>
          ))}
-      </div>
+      </motion.div>
    );
 }
 

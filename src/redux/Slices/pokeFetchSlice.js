@@ -50,7 +50,6 @@ const pokeFetchSlice = createSlice({
    name: 'pokes',
    initialState: {
       pokemonData: [],
-      loading: false,
       error: null,
    },
    reducers: {},
