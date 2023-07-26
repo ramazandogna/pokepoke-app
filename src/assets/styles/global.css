@@ -11,7 +11,7 @@
    --main-bg: #fff;
    --light-bg: #f3f4f7;
    --opacity-bg: #7ab1da;
-   --header-height: 4.5rem;
+   --header-height: 3.7rem;
    --font: 'M PLUS Rounded 1c', sans-serif;
 }
 
@@ -42,7 +42,7 @@ html {
 }
 .main-section {
    position: relative;
-   padding-top: calc(var(--header-height) + 1.5rem);
+   padding-top: calc(var(--header-height) + 0.5rem);
 }
 .section {
    padding: 2.5rem 0;
@@ -51,11 +51,12 @@ html {
    letter-spacing: 1px;
    display: inline-block;
    margin-bottom: 1rem;
-   padding: 0.5rem 2rem 0.5rem 0.5rem;
+   padding: 0.7rem 1rem 0.7rem 0.7rem;
+   text-transform: uppercase;
    transition: all 0.35s;
    background-color: var(--light-bg);
    border-radius: 0.5rem;
-   font-size: 2rem;
+   font-size: 1.5rem;
    font-weight: 800;
    color: var(--dark-color);
    border: 1px solid rgb(255, 255, 255, 0);

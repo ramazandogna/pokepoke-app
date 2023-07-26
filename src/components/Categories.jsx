@@ -31,8 +31,8 @@ function Categories() {
    const container = {
       visible: {
          transition: {
-            delayChildren: 1,
-            staggerChildren: 1,
+            delayChildren: 0.1,
+            staggerChildren: 0.2,
          },
       },
    };

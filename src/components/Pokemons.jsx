@@ -37,7 +37,7 @@ function Pokemons() {
       visible: {
          transition: {
             delayChildren: 1,
-            staggerChildren: 1,
+            staggerChildren: 0.5,
          },
       },
    };
